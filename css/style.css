@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+:root {
+
+    --font-principal: 'Roboto', sans-serif;
+    --font-alternativa: 'Amatic SC', sans-serif;
+
+    /* CORES */
+
+    --cor1: #611300; /* cor principal */
+    --cor2: #AD2300;
+    --cor3: #AD3111;
+    --cor4: #00AD74;
+    --cor5: #006141;
+
+}
+
+* {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.contenier {
+
+    height: 100vh;
+    background-color: #cacacaa6;
+
+}
+
+.top {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    height: 70px;
+    width: 100vw;
+    background-color: var(--cor1);
+
+}
+
+.top a {
+
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: calc( 10px + 2.5vh);
+    font-family: var(--font-alternativa);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.864);
+    letter-spacing: .1rem;
+
+}
+
+.top i {
+
+    font-size: calc(10px + 4vh);
+    color: var(--cor4);
+    transition: all .4s;
+    animation:  logo-burguer 2s .2s;
+    transform: rotate(-13deg);
+   
+}
+
+.top i:hover {
+
+    font-size: calc(10px + 4.2vh);
+    color: #00ad73d5;
+    transform: rotate(1deg);
+
+}
+
+nav {
+    
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 0 0 1rem;
+    top: 0;
+    left: 0;
+    background-color: var(--cor1);
+    height: 25rem;
+    width: 0;
+    z-index: 9;
+    border-bottom-right-radius: 100%;
+    overflow: hidden;
+    opacity: 0;
+    transition: .5s;
+    
+}
+.show nav {
+    
+    opacity: 1;
+    width: 18rem;
+
+}
+nav .menu-items {
+
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: .3s;
+
+}
+nav .menu-items li {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+nav .menu-items li i {
+
+    font-size: 2rem;
+    color: var(--cor3);
+
+} 
+nav .menu-items a {
+
+    letter-spacing: .1rem;
+    color: white;
+    font-family: var(--font-principal);
+    font-weight: 300;
+    text-decoration: none;
+
+}
+nav .menu-items a:hover{
+
+    color: var(--cor2);
+
+}
+
+/* MENU HAMBURGER */
+.menu {
+
+    position: absolute;
+    margin: 1.7rem 1rem;
+    top: 0;
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 10;
+
+}
+.menu .line {
+
+    background-color: white;
+    width: 100%;
+    height: .1rem;
+    box-shadow: .1rem .1rem .2rem #000;
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+
+}
+.menu .line:nth-child(2){
+
+    width: 70%;
+
+}
+.menu .line:nth-child(3){
+
+    width: 85%;
+
+}
+
+
+/* SLIDER */
+
+.slider-burguer {
+
+    height: calc( 60vh - 70px);
+    width: 100vw;
+    box-shadow: 5px 0 13px var(--cor1),3px 0 10px var(--cor1);
+    position: relative;
+    overflow: hidden;
+
+}
+.items {
+
+    height: 100%;
+    width: calc( 100vw * 3);
+    display: flex;
+    align-items: center;
+    background-color: var(--cor2);
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: 2;
+
+}
+.item {
+
+    height: 100%;
+    width: 100vw;
+    transition: all 1s;
+
+}
+.item:first-child {
+
+    margin-left: -100vw;
+
+}
+.item img {
+
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: .8;
+    transition: all .5s;
+
+}
+
+
+.buttons {
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.buttons button {
+
+    height: 100%;
+    width: 2rem;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: white;
+    border: none;
+    z-index: 3;
+    cursor: pointer;
+    opacity: 0;
+    transition: .3s;
+
+}
+button:hover {
+
+    opacity: 1;
+
+}
+button:first-child {
+
+    transform: rotate(180deg);
+
+}
+
+
+.mark-banner {
+
+    height: 40px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+}
+.mark-banner span {
+
+    width: 8px;
+    height: 8px;
+    border: none;
+    border-radius: 100%;
+    background-color: #969696e9;
+    transition: .3s;
+
+}
+.mark-banner span:first-child {
+
+    background-color: var(--cor2);
+
+}
+.mark-banner span.active {
+
+    background-color: var(--cor2);
+
+}
+
+/* FIM SLIDER */
+
+.mensager {
+
+    text-align: center;
+    margin: 2.5rem auto;
+
+}
+
+.mensager h2 {
+
+    font-family: var(--font-principal);
+    font-weight: 500;
+    margin-bottom: .5rem;
+    color: var(--cor5);
+
+}
+
+.mensager p {
+
+    font-family: var(--font-principal);
+    font-weight: 300;
+    text-transform: capitalize;
+    letter-spacing: .1rem;
+    margin-bottom: .5rem;
+    color: var(--cor4);
+
+}
+
+.mensager p:nth-child(3) {
+
+    color: #6f6767de;
+
+}
+
+.mensager .btn-what {
+
+    background-color: var(--cor3);
+    border: solid 2px var(--cor3);
+    padding: .4rem 1rem;
+    border-radius: 5px;
+    text-transform: capitalize;
+    letter-spacing: .1rem;
+    color: white;
+    font-family: var(--font-principal);
+    font-weight: 500;
+    margin-top: .8rem;
+    transition: all .3s;
+    cursor: pointer;
+
+}
+
+.mensager .btn-what:hover {
+
+    color: var(--cor3);
+    background-color: transparent;
+
+}
+
+/* ANIMACAO */
+
+@keyframes logo-burguer {
+    
+    0% {
+
+        transform: translateX(380px);
+        opacity: 0;
+
+    }
+
+    100% {
+
+        transform: translateX(1);
+        opacity: 1;
+
+    }
+}
